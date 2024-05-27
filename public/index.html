@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Upload</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="mt-5">Upload CSV Files</h1>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="departmentFile">Upload Departments CSV:</label>
+                        <input type="file" class="form-control-file" id="departmentFile" name="departmentFile" accept=".csv">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobFile">Upload Jobs CSV:</label>
+                        <input type="file" class="form-control-file" id="jobFile" name="jobFile" accept=".csv">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeFile">Upload Employees CSV:</label>
+                        <input type="file" class="form-control-file" id="employeeFile" name="employeeFile" accept=".csv">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS - optional  -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+    <!-- JavaScript file -->
+    <script src="upload.js"></script>
+</body>
+</html>
