@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const HiredEmployees = require('../models/hired_employees');
+const Employee = require('../models/employee');
 
 router.get('/employees-hired-quarters', (req, res) => {
-  HiredEmployees.getHiredByQuarter2021((err, results) => {
+  Employee.getHiredByQuarter2021((err, results) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
