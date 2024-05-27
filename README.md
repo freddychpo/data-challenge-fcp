@@ -7,7 +7,7 @@ Este es un proyecto de desafío de datos que incluye una API para manejar datos 
 
 1. Clona el repositorio:
    ```bash
-   git clone <URL-del-repositorio>
+   git clone <[URL-del-repositorio](https://github.com/freddychpo/data-challenge-fcp.git) >
    ```
 2. Navega al directorio del proyecto:
    ```bash
@@ -51,7 +51,7 @@ Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 
 ## Endpoints
 
-- `POST /upload-csv` - Sube y procesa un archivo CSV.
+- `POST /upload-csv` - Sube y procesa los archivos CSV.
 - `GET /api/employees-hired-quarters` - Obtiene el número de empleados contratados por trimestre en 2021.
 - `GET /api/departments-above-mean` - Obtiene los departamentos que contrataron más empleados que la media en 2021.
 
