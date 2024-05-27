@@ -11,7 +11,7 @@ Este es un proyecto de desafío de datos que incluye una API para manejar datos 
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd datachallengefcp
+   cd data-challenge-fcp
    ```
 3. Instala las dependencias:
    ```bash
