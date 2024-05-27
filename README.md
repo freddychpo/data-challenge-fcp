@@ -7,7 +7,7 @@ Este es un proyecto de desafío de datos que incluye una API para manejar datos 
 
 1. Clona el repositorio:
    ```bash
-   git clone <[URL-del-repositorio](https://github.com/freddychpo/data-challenge-fcp.git) >
+   git clone https://github.com/freddychpo/data-challenge-fcp.git
    ```
 2. Navega al directorio del proyecto:
    ```bash
