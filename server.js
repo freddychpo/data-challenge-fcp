@@ -22,6 +22,7 @@ app.use('/api', departmentsAboveMean);
 
 // Function to process CSV file without headers
 function processCsvFile(csvFile, model, columns, callback) {
+  console.log('CSV data:', csvFile.data.toString('utf8'));
   const csvData = csvFile.data.toString('utf8');
   const lines = csvData.split('\n').filter(line => line.trim() !== '');
 
@@ -33,6 +34,8 @@ function processCsvFile(csvFile, model, columns, callback) {
     });
     return row;
   });
+
+  console.log('Rows to insert:', rows);
 
   let errors = [];
   let processedCount = 0;
@@ -100,7 +103,7 @@ app.post('/upload-csv', (req, res) => {
   if (employeeFile) {
     filesToProcess++;
     const model = require('./server/models/employee');
-    processCsvFile(employeeFile, model, ['id', 'name'], (fileErrors) => {
+    processCsvFile(employeeFile, model, ['id', 'name', 'hire_datetime', 'department_id', 'job_id'], (fileErrors) => {
       errors = errors.concat(fileErrors);
       filesToProcess--;
       checkIfDone();
