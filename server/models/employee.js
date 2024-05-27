@@ -2,12 +2,18 @@ const db = require('../config/db');
 
 const Employee = {
   insert: (employee, callback) => {
-    const query = 'insert into employee (name, hire_datetime, department_id, job_id) values (?, ?, ?, ?)';
-    db.query(query, [employee.name, employee.hire_datetime, employee.department_id, employee.job_id], (err, result) => {
-      if (err) {
-        console.error('Error inserting employee:', err);
-        return callback(err);
-      }
+   // Convert date string to JavaScript date object
+   const hireDate = new Date(employee.hire_datetime);
+
+   // Get the date format required by MySQL (YYYYY-MM-DD HH:MM:SS)
+   const formattedHireDate = hireDate.toISOString().slice(0, 19).replace('T', ' ');
+
+   const query = 'insert into employee (name, hire_datetime, department_id, job_id) values (?, ?, ?, ?)';
+   db.query(query, [employee.name, formattedHireDate, employee.department_id, employee.job_id], (err, result) => {
+     if (err) {
+       console.error('Error inserting employee:', err);
+       return callback(err);
+     }
 
       callback(null, result);
     });
