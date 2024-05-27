@@ -2,9 +2,23 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     event.preventDefault();
 
     var formData = new FormData();
-    formData.append('departmentFile', document.getElementById('departmentFile').files[0]);
-    formData.append('jobFile', document.getElementById('jobFile').files[0]);
-    formData.append('employeeFile', document.getElementById('employeeFile').files[0]);
+    var departmentFile = document.getElementById('departmentFile').files[0];
+    var jobFile = document.getElementById('jobFile').files[0];
+    var employeeFile = document.getElementById('employeeFile').files[0];
+
+    var fileNames = [];
+    if (departmentFile) {
+        fileNames.push(departmentFile.name);
+        formData.append('departmentFile', departmentFile);
+    }
+    if (jobFile) {
+        fileNames.push(jobFile.name);
+        formData.append('jobFile', jobFile);
+    }
+    if (employeeFile) {
+        fileNames.push(employeeFile.name);
+        formData.append('employeeFile', employeeFile);
+    }
 
     fetch('/upload-csv', {
         method: 'POST',
@@ -12,7 +26,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     })
     .then(response => {
         if (response.ok) {
-            alert('CSV files uploaded successfully!');
+            alert(`CSV file(s) \n${fileNames.join('\n')} \nuploaded successfully!`);
         } else {
             alert('Failed to upload CSV files!');
         }
