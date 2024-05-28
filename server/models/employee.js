@@ -42,7 +42,7 @@ const Employee = {
       select d.id, d.name, count(e.id) as hired
       from employee e
       join department d on e.department_id = d.id
-      where year(he.hire_datetime) = 2021
+      where year(e.hire_datetime) = 2021
       group by d.id, d.name
       having hired > (
         select avg(hired_count) from (
