@@ -45,6 +45,11 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     })
     .catch(error => {
         console.error('Error uploading CSV files:', error);
-        alert('Error uploading CSV files. Here is the error message:\n' + Array.from(errorSet).join('\n'));
+        if (error instanceof SyntaxError) {
+            alert('Error uploading CSV files. The server returned invalid JSON.');
+        } else {
+            console.log('Error set:', errorSet);
+            alert('Error uploading CSV files. Here is the error message:\n' + Array.from(errorSet).join('\n'));
+        }
     });
 });
