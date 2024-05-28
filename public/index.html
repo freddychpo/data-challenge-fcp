@@ -11,7 +11,27 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h1 class="mt-5">Upload CSV Files</h1>
+                <!-- Primera columna -->
+                <div>
+                    <h1 class="mt-5">Upload CSV Files</h1>
+                    <p>Please select the CSV files you want to upload.</p>
+                    <p>About the app:</p>
+                    <p>This app was built to perform the loading of departments, jobs, and employees data, having as a data source CSV files.</p>
+                    <p>Indications:</p>
+                    <ul>
+                        <li>Use the 'Choose file' button to choose the CSV files</li>
+                        <li>If you are going to load only employees data, make sure you have previously loaded departments and jobs data.</li>
+                    </ul>
+                    <p>Additional notes:</p>
+                    <ul>
+                        <li>CSV files do not have headers</li>
+                        <li>There is 1 CSV file for each table</li>
+                        <li>For loading the employees data, make sure that the ids of departments and jobs really exist (i.e., that those ids are in the departments and jobs data) and that they are not empty in the CSV file</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 align-self-center">
+                <!-- Segunda columna -->
                 <form id="uploadForm" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="departmentFile">Upload Departments CSV:</label>
@@ -28,6 +48,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
+
         </div>
     </div>
 
