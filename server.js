@@ -30,7 +30,15 @@ function processCsvFile(csvFile, model, columns, callback) {
     const values = line.split(',').map(value => value.trim());
     const row = {};
     columns.forEach((column, index) => {
-      row[column] = values[index] !== undefined ? values[index] : null;
+      if (column) {
+        if (column === 'hire_datetime' && values[index] === '') {
+          row[column] = null; // Asigna null si el valor de fecha está en blanco
+        } else if (column === 'name' && values[index] === '') {
+          row[column] = null; // Asigna null si el valor del nombre está en blanco
+        } else {
+          row[column] = values[index] !== undefined ? values[index] : null;
+        }
+      }
     });
     return row;
   });

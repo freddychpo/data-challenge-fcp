@@ -15,8 +15,8 @@ create table job (
 
 create table employee (
   id int primary key auto_increment,
-  name varchar(50) not null,
-  hire_datetime datetime not null,
+  name varchar(50) null,
+  hire_datetime datetime null,
   department_id int,
   job_id int,
   foreign key (department_id) references department(id),
