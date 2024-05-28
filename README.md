@@ -32,7 +32,7 @@ To start the server in development mode with nodemon:
    npm run dev
    ```
 
-### Producción
+### Production
 
 To start the server in production mode:
    ```bash
