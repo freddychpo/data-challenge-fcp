@@ -30,7 +30,7 @@ const Employee = {
         sum(case when quarter(e.hire_datetime) = 4 then 1 else 0 end) as q4
       from employee e
       join department d on e.department_id = d.id
-      join job j on he.job_id = j.id
+      join job j on e.job_id = j.id
       where year(e.hire_datetime) = 2021
       group by d.name, j.job
       order by d.name, j.job;
