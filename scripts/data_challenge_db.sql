@@ -1,8 +1,4 @@
 
-create database data_challenge_db;
-
-use data_challenge_db;
-
 create table department (
   id int primary key auto_increment,
   name varchar(50) not null
