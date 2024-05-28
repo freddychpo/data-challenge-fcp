@@ -4,7 +4,8 @@ This is a data challenge project that includes an API to manage historical emplo
 
 ## Deployment
 
-The application is deployed on Heroku and can be accessed at https://data-challenge-fcp-cf446e24c582.herokuapp.com/.
+The application is deployed on Heroku and can be accessed at  
+https://data-challenge-fcp-cf446e24c582.herokuapp.com/.
 
 ## Local Development
 
