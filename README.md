@@ -43,7 +43,7 @@ To start the server in production mode:
 
 Create a .env file at the root of the project with the following variables:
    ```plaintext
-   DB_HOST=localhost
+   DB_HOST=localhost # or 127.0.0.1
    DB_USER=root
    DB_PASSWORD=root
    DB_NAME=data_challenge_db
