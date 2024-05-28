@@ -43,3 +43,12 @@ If you want to run the application locally, follow these steps:
    ```bash
    npm test
    ```
+
+## Endpoints
+
+- `POST /upload-csv` - Upload and process CSV files.
+- `GET /api/employees-hired-quarters` - Get the number of employees hired per quarter in 2021.
+- `GET /api/departments-above-mean` - Get departments that hired more employees than the average in 2021.
+
+## Autor
+Freddy Ch P
