@@ -1,8 +1,20 @@
 const request = require('supertest');
 const chai = require('chai');
-const app = require('../server'); // Importa tu app de Express
+const app = require('../server');
+const path = require('path');
 
 const expect = chai.expect;
+
+describe('API endpoints', () => {
+    it('should upload a valid CSV file', done => {
+      request(app)
+        .post('/upload-csv')
+        .attach('file', fs.readFileSync(path.join(__dirname, 'valid.csv')), 'valid.csv')
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          done();
+        });
+    });
 
 describe('API endpoints', () => {
   it('should get all employees hired by quarter in 2021', done => {
