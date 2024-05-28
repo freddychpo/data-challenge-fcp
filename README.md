@@ -25,7 +25,7 @@ If you want to run the application locally, follow these steps:
    ```
 4. Create a `.env` file at the root of the project and add your environment variables:
    ```bash
-   CLEARDB_DATABASE_URL=your-database-url
+   CLEARDB_DATABASE_URL=mysql://<username>:<password>@<host>/<database>?reconnect=true
    ```
 5. Build and run the application with Docker:
    ```bash
