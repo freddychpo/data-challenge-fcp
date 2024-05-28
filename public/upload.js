@@ -25,14 +25,16 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
         body: formData
     })
     .then(response => {
+        console.log(response);
         if (response.ok) {
             alert(`CSV file(s) \n${fileNames.join('\n')} \nuploaded successfully!`);
         } else {
-            alert('Failed to upload CSV files!');
+            return response.json().then(data => {
+                throw new Error(data.errors ? data.errors.join('\n') : 'Failed to upload CSV files');});
         }
     })
     .catch(error => {
         console.error('Error uploading CSV files:', error);
-        alert('Error uploading CSV files. Please try again later.');
+        alert('Error uploading CSV files. Here is the error message:\n' + error.message);
     });
 });

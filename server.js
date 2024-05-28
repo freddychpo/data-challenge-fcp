@@ -43,7 +43,7 @@ function processCsvFile(csvFile, model, columns, callback) {
   rows.forEach(row => {
     model.insert(row, (err, result) => {
       if (err) {
-        errors.push(err);
+        errors.push(err.sqlMessage || err.message);
       }
       processedCount++;
       if (processedCount === rows.length) {
@@ -73,7 +73,7 @@ app.post('/upload-csv', (req, res) => {
   function checkIfDone() {
     if (filesToProcess === 0) {
       if (errors.length > 0) {
-        res.status(500).send(`Errors occurred: ${errors.join(', ')}`);
+        res.status(500).json({ errors });
       } else {
         res.send('CSV files processed successfully.');
       }
