@@ -32,9 +32,9 @@ function processCsvFile(csvFile, model, columns, callback) {
     columns.forEach((column, index) => {
       if (column) {
         if (column === 'hire_datetime' && values[index] === '') {
-          row[column] = null; // Asigna null si el valor de fecha está en blanco
+          row[column] = null;
         } else if (column === 'name' && values[index] === '') {
-          row[column] = null; // Asigna null si el valor del nombre está en blanco
+          row[column] = null;
         } else {
           row[column] = values[index] !== undefined ? values[index] : null;
         }
