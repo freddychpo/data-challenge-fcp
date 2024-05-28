@@ -10,7 +10,7 @@ describe('API endpoints', () => {
       .get('/api/employees/employees-hired-quarters')
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        //  Here we can add more assertions based on the structure of your data
+        //  Here we can add more assertions based on the structure of our data
         done();
       });
   });
@@ -20,7 +20,7 @@ describe('API endpoints', () => {
       .get('/api/departments/departments-above-mean')
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        //  Here we can add more assertions based on the structure of your data
+        //  Here we can add more assertions based on the structure of our data
         done();
       });
   });
