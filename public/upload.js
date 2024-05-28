@@ -20,6 +20,8 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
         formData.append('employeeFile', employeeFile);
     }
 
+    let errorSet = new Set();
+
     fetch('/upload-csv', {
         method: 'POST',
         body: formData
@@ -30,11 +32,19 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
             alert(`CSV file(s) \n${fileNames.join('\n')} \nuploaded successfully!`);
         } else {
             return response.json().then(data => {
-                throw new Error(data.errors ? data.errors.join('\n') : 'Failed to upload CSV files');});
+                if (Array.isArray(data.errors)) {
+                    data.errors.forEach(error => {
+                        errorSet.add(error);
+                    });
+                } else {
+                    errorSet.add(data.errors || 'Failed to upload CSV files');
+                }
+                throw new Error('Failed to upload CSV files');
+            });
         }
     })
     .catch(error => {
         console.error('Error uploading CSV files:', error);
-        alert('Error uploading CSV files. Here is the error message:\n' + error.message);
+        alert('Error uploading CSV files. Here is the error message:\n' + Array.from(errorSet).join('\n'));
     });
 });
