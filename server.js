@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 app.use(fileUpload());
 
 // Use routes
-app.use('/api', employeesHiredQuarters);
-app.use('/api', departmentsAboveMean);
+app.use('/api/employees', employeesHiredQuarters);
+app.use('/api/departments', departmentsAboveMean);
 
 // Function to process CSV file without headers
 function processCsvFile(csvFile, model, columns, batchSize, callback) {
