@@ -1,14 +1,12 @@
 const mysql = require('mysql');
 const config = require('./config');
 
-const connection = mysql.createConnection(config.db);
-
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to the database:', err.message);
-    process.exit(1);
-  }
-  console.log('Connected to the database');
+const pool = mysql.createPool({
+  connectionLimit: 10, //
+  host: config.db.host,
+  user: config.db.user,
+  password: config.db.password,
+  database: config.db.database
 });
 
-module.exports = connection;
+module.exports = pool;
